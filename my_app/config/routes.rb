@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace 'api' do
+    namespace 'v1' do
+      resources :groups, only: [:index, :create]
+      resources :orders, only: [:index, :create]
+
+      get 'users/sign_up'
+      post 'users/sign_in'
+      post 'users/sign_up'
+    end
+  end
 end
